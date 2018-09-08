@@ -1,0 +1,55 @@
+
+ <ion-header>
+
+  <ion-navbar>
+    <ion-title>payment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<form #checkout="ngForm" (ngSubmit)="onSubmit(checkout)" class="checkout">
+  <div class="form-row">
+    <label for="card-info">Card Info</label>
+    <div id="card-info" #cardInfo></div>
+
+    <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
+  </div>
+  
+  <button type="submit">Submit</button>
+</form>
+ 
+<ion-content>
+ 
+    <ion-card>
+      <ion-card-header>
+        Bar Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        Doughnut Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+ 
+</ion-content>
+
+</ion-content> 

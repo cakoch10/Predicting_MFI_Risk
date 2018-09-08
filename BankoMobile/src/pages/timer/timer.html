@@ -1,0 +1,23 @@
+
+    <ion-card *ngIf="timer">
+        <ion-item class="no-bottom-border item">
+            <button ion-button *ngIf="timeInSeconds && timeInSeconds > 0" large full clear class="timer-button timer-text">{{timer.displayTime}}</button>
+        </ion-item>
+        <!-- <ion-item class="no-bottom-border" *ngIf="timeInSeconds && timeInSeconds > 0">
+            <button ion-button icon-left clear color="danger" small (click)="initTimer()" item-left *ngIf="!timer.runTimer && (timer.hasStarted || timer.hasFinished) || timer.hasFinished">
+                <ion-icon name="refresh"></ion-icon>
+                Reset
+            </button>         
+        </ion-item> -->
+    </ion-card>  
+     
+    <style>
+      .timer-button {
+        font-size: 3rem !important;
+        height: 1em !important;
+      }
+      
+      .no-bottom-border.item .item-inner {
+          border-bottom: none !important;
+      }
+    </style>

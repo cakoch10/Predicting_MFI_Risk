@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title style="text-align: center; font-size: 100px; font-family: 'Sigmar One', cursive;">
+            Login
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+
+</head>
+
+<ion-content style="background-color: rgb (204, 203, 203);" padding>
+    <p>
+        <img src="../../assets/imgs/banco_solidario.png" class="boxed" style='width: 100%; max-width: 600px ' border="0" alt="Null">
+      </p>
+
+    <ion-row style="height:8rem"></ion-row>
+
+    <div style="border: black 2px" class="centerbox colorbox" padding>
+
+        <ion-list class="widthbox">
+
+            <ion-item>
+                <ion-input [(ngModel)]="email" type="text" placeholder="email address"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>
+              </ion-item>
+
+        </ion-list>
+
+        <button ion-button full color="tertiary" (click)="login()" full>Login</button>
+    </div>
+
+
+</ion-content>

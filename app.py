@@ -20,30 +20,41 @@ import sys
 #
 def format_sentence(sent):
     return({word: True for word in nltk.word_tokenize(sent)})
-    
+
 """ Train models with past answers that lead to business success
     Input should be a list of (answer, outcome) pairs"""
 def train_sentiment(train_data):
-    dictionary = set(word.lower() for passage in train_data for word in word_tokenize(passage[0]))
-    t = [({word: (word in word_tokenize(x[0])) for word in dictionary}, x[1]) for x in train]
+    all_words = set(word.lower() for passage in train_data for word in word_tokenize(passage[0]))
+    t = [({word: (word in word_tokenize(x[0])) for word in all_words}, x[1]) for x in train_data]
     classifier = nltk.NaiveBayesClassifier.train(t)
+    classifier.show_most_informative_features()
     return classifier
 """ Analyze sentiment from the answer to the question:
     Where do you see your business in a year's time?
 """
 def sentiment(classifier, answer):
-    print(classifier.classify(format_sentence(answer)))
+    return classifier.classify(format_sentence(answer))
 
 if __name__ == "__main__":
-    train = [("Great place to be when you are in Bangalore.", "pos"),
-            ("The place was being renovated when I visited so the seating was limited.", "neg"),
-            ("Loved the ambience, loved the food", "pos"),
-            ("The food is delicious but not over the top.", "neg"),
-            ("Service - Little slow, probably because too many people.", "neg"),
-            ("The place is not easy to locate", "neg"),
-            ("Mushroom fried rice was spicy", "pos"),
+    train = [("My business will yield huge profits", "pos"),
+            ("We have many potential customers", "pos"),
+            ("want to expand into the neighboring town", "pos"),
+            ("We will reach a thousand customers soon", "pos"),
+            ("have many friends who support my business", "pos"),
+            ("We will definitely take off", "pos"),
+            ("I am confident", "pos"),
+            ("competition is stiff", "neg"),
+            ("I am optimistic", "pos"),
+            ("I will hire more people", "pos"),
+            ("we will succeed", "pos"),
+            ("Not enough capital", "neg"),
+            ("The market will fail", "neg"),
+            ("Pessimistic", "neg")
             ]
     classifier = train_sentiment(train)
 
-    print("done training")
-    print(sentiment(classifier, "I love the super spicy food"))
+    result = sentiment(classifier, "I am optimistic that we will have many customers")
+    if result=="pos":
+        print("Positive outcome")
+    else:
+        print("negative outcome")

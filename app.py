@@ -27,12 +27,14 @@ def train_sentiment(train_data):
     all_words = set(word.lower() for passage in train_data for word in word_tokenize(passage[0]))
     t = [({word: (word in word_tokenize(x[0])) for word in all_words}, x[1]) for x in train_data]
     classifier = nltk.NaiveBayesClassifier.train(t)
-    classifier.show_most_informative_features()
+    """Prints out the most significant text features"""
+    #classifier.show_most_informative_features()
     return classifier
 """ Analyze sentiment from the answer to the question:
     Where do you see your business in a year's time?
 """
 def sentiment(classifier, answer):
+
     return classifier.classify(format_sentence(answer))
 
 if __name__ == "__main__":
@@ -53,8 +55,22 @@ if __name__ == "__main__":
             ]
     classifier = train_sentiment(train)
 
-    result = sentiment(classifier, "I am optimistic that we will have many customers")
-    if result=="pos":
-        print("Positive outcome")
+    #positive example
+    sentence = "I am optimistic that we will have many customers"
+    #negative example
+    #sentence = "We will surely fail"
+    result_trained_data = sentiment(classifier, sentence)
+    #Vader Analyzer
+    analyzer = SentimentIntensityAnalyzer()
+
+    result_vader = analyzer.polarity_scores(sentence)
+    overall = result_vader["pos"]-result_vader["neg"]
+    if overall>0:
+        res = "positive"
     else:
-        print("negative outcome")
+        res = "negative"
+    print("Result without training data: " + str(res))
+    if result_trained_data=="pos":
+        print("Result with training data: Positive")
+    else:
+        print("Result with training data: negative")

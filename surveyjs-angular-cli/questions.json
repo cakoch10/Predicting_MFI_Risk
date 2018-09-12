@@ -1,0 +1,41 @@
+{
+    "psych":{
+        "optimism":[
+            "I am facing my future in an optimistic way",
+            "I can hardly think of something positive in the future",
+            "I worry about my future",
+            "It often seems to me that everything is gloomy"
+        ],
+        "non-impulsiveness":[
+            "I do certain things that are bad for me, if they are fun",
+            "Pleasure and fun sometimes keep me from getting work done",
+            "Sometimes I can’t stop myself from doing something, even if I know it is wrong",
+            "I often act without thinking through all the alternatives",
+            "I find it difficult to resist buying something that really appeals to me"
+        ],
+        "approach-goal-orientation":[
+            "I experience inspiration",
+            "Something I encounter or experience inspires me",
+            "I am inspired to do something",
+            "I feel inspired"
+        ],
+        "internal-financial-locus-of-control":[
+            "Saving and careful investing are a key factor in becoming rich", 
+            "Whether or not I get to become wealthy depends mostly on my ability", 
+            "In the long run, people who take very good care of their finances stay wealthy", 
+            "If I become poor, it’s usually my own fault", 
+            "I am usually able to protect my personal interests", 
+            "When I get what I want, it’s usually because I worked hard for it", 
+            "My life is determined by my own actions", 
+            "There is little one can do to prevent poverty",  
+            "Becoming rich has nothing to do with luck", 
+            "Regarding money, there isn’t much you can do for yourself when you are poor",  
+            "It’s not always wise for me to save, because many things turn out to be a matter of good or bad fortune", 
+            "It’s chiefly a matter of fate whether I become rich or poor",
+            "Only those who inherit or win money can possibly become rich"
+        ]
+    }
+}
+
+
+

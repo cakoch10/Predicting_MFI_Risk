@@ -1,0 +1,1 @@
+<h1>Survey</h1><survey [json]='{"pages": [{"elements": [{"type": "rating", "name": "question3"}, {"type": "rating", "name": "question2"}, {"type": "rating", "name": "question1", "title": "hey"}], "name": "page1"}]}'></survey>

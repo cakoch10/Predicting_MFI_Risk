@@ -1,0 +1,22 @@
+{
+   "pages": [
+      {
+         "name": "page1",
+         "elements": [
+            {
+               "type": "rating",
+               "name": "question3"
+            },
+            {
+               "type": "rating",
+               "name": "question2"
+            },
+            {
+               "type": "rating",
+               "name": "question1",
+               "title": "hey"
+            }
+         ]
+      }
+   ]
+}

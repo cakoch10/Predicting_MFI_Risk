@@ -1,12 +1,18 @@
 
-#from flask import Flask, request
+from flask import Flask, request
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.tokenize import word_tokenize
 import nltk
 #from twilio.twiml.messaging_response import MessagingResponse, Message
 import sys
+from flask_cors import CORS
 
-# app = Flask(__name__)
+
+app = Flask(__name__)
+CORS(app)
+
+classifier_global = None
+
 #
 # @app.route("/", methods=['GET', 'POST'])
 # def inbound_sms():
@@ -35,6 +41,15 @@ def train_sentiment(train_data):
 def sentiment(classifier, answer):
     return classifier.classify(format_sentence(answer))
 
+
+
+@app.route("/", methods=['GET', 'POST'])
+def msg():
+    print("something received", file=sys.stderr)
+    data = request.data
+    print(data)
+    return("{}")
+
 if __name__ == "__main__":
     train = [("My business will yield huge profits", "pos"),
             ("We have many potential customers", "pos"),
@@ -52,9 +67,10 @@ if __name__ == "__main__":
             ("Pessimistic", "neg")
             ]
     classifier = train_sentiment(train)
-
+    classifier_global = classifier
     result = sentiment(classifier, "I am optimistic that we will have many customers")
     if result=="pos":
         print("Positive outcome")
     else:
         print("negative outcome")
+    app.run(debug=True, host='0.0.0.0',port=80)

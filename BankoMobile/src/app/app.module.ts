@@ -16,16 +16,36 @@ import { MapsPage } from "../pages/maps/maps";
 import { AgmCoreModule } from "../../node_modules/@agm/core";
 import { TimerComponent } from "../pages/timer/timer";
 
+import { SurveyDetailsPage } from '../pages/survey-details/survey-details';
+import { SurveyResultsPage } from '../pages/survey-results/survey-results';
+
+import { SurveyComponent } from '../components/survey/survey';
+import { SurveyProvider } from '../providers/survey/survey';
+
+import { ApiWrapper } from '../providers/survey/api-wrapper';
+import { ChartComponent } from '../components/chart/chart';
+
+import { ChartsModalPage } from '../modals/charts-modal';
+
+
+// import { SurveyComponent } from '../../node_modules/survey-angular';
+// import { SurveyComponent } from '../../node_modules/surveyjs-editor';
+
 @NgModule({
   declarations: [
     MyApp, 
-    HomePage, 
+    HomePage,
     RegistrationPage, 
     LoginPage, 
     LandingPage, 
     PaymentPage,
+    SurveyComponent,
+    SurveyDetailsPage,
+    SurveyResultsPage,
     MapsPage, 
     TimerComponent,
+    ChartComponent,
+    ChartsModalPage
   ],
 
   imports: [
@@ -34,10 +54,7 @@ import { TimerComponent } from "../pages/timer/timer";
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCFs3pRqf9Rqxx7SItWDX9hK_XobVgCLQk',
       libraries: ['geometry'],
-      }),
-     
-
-    
+      }),    
     IonicModule.forRoot(MyApp, {}, { links: [
       { component: LoginPage, name: "login", segment: "login"},
       { component: HomePage, name: "home", segment: "home" },
@@ -45,8 +62,6 @@ import { TimerComponent } from "../pages/timer/timer";
       { component: PaymentPage, name: "payment", segment: "payment"},
       { component: MapsPage, name: "maps", segment: "maps"},
       { component: RegistrationPage, name: "registration", segment: "registration" }]})
-
-  
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,15 +73,16 @@ import { TimerComponent } from "../pages/timer/timer";
     PaymentPage,
     MapsPage,
     TimerComponent,
+    SurveyDetailsPage,
+    SurveyResultsPage,
+    ChartsModalPage
   ],
-
   providers: [
     StatusBar,
     SplashScreen,
-
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-   
-
+    SurveyProvider,
+    ApiWrapper
   ],
 })
 export class AppModule { }

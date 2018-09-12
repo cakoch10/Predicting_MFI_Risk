@@ -1,13 +1,27 @@
+// import { NgModule } from '@angular/core';
+// import { IonicPageModule } from 'ionic-angular';
+// import { LandingPage } from './landing';
+
+// @NgModule({
+//   declarations: [
+//     LandingPage,
+//   ],
+//   imports: [
+//     IonicPageModule.forChild(LandingPage),
+//   ],
+// })
+// export class LandingPageModule {}
+
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { LandingPage } from './landing';
+import { SurveyDetailsPage } from './survey-details';
 
 @NgModule({
   declarations: [
-    LandingPage,
+    SurveyDetailsPage,
   ],
   imports: [
-    IonicPageModule.forChild(LandingPage),
+    IonicPageModule.forChild(SurveyDetailsPage),
   ],
 })
-export class LandingPageModule {}
+export class SurveyDetailsPageModule {}
